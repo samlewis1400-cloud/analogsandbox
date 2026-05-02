@@ -1,9 +1,48 @@
 <!DOCTYPE html>
 <html>
-<body style="background: #FFFFFF; color: black; font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 50vh;">
+<head>
+    <style>
+        /* This CSS handles the smooth color fade */
+        body { 
+            transition: background 0.4s, color 0.4s; 
+            margin: 0;
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .dark-mode { background: #09090b; color: white; }
+        button { 
+            margin-top: 20px; 
+            padding: 10px 20px; 
+            cursor: pointer; 
+            border: 1px solid black;
+            background: transparent;
+        }
+        .dark-mode button { border-color: white; color: white; }
+    </style>
+</head>
+<body>
     <div style="text-align: center;">
-        <h1 style="color: #000000;">ANALOG SANDBOX</h1>
-        <p>Status: hello.</p>
+        <h1 id="title">ANALOG SANDBOX</h1>
+        <p id="status">Status: Hello.</p>
+        
+        <button onclick="toggleVibe()">Toggle Vibe</button>
     </div>
+
+    <script>
+        // This is the JavaScript! It "toggles" the CSS class on and off.
+        function toggleVibe() {
+            document.body.classList.toggle("dark-mode");
+            
+            const status = document.getElementById("status");
+            if (document.body.classList.contains("dark-mode")) {
+                status.innerText = "Status: Into the void.";
+            } else {
+                status.innerText = "Status: Back to the light.";
+            }
+        }
+    </script>
 </body>
 </html>
